@@ -13,7 +13,7 @@ with open("labels.pickle", 'rb') as f:
     og_labels = pickle.load(f)
     labels = {v:k for k,v in og_labels.items()}
 #cap=cv2.VideoCapture(0)
-frame = cv2.imread("ElonMusk1.jpg")
+frame = cv2.imread("KitHarington4.jpg")
 while(k==1):
     #ret, frame = cap.read()
     #frame = cv2.flip(frame, 1)
@@ -25,7 +25,7 @@ while(k==1):
         roi_color = frame[y:y + h, x:x + w]
 
         id_,conf = recognizer.predict(roi_gray)
-        if conf>=55 and conf<=100:
+        if conf>=20 and conf<=100:
             print(id_)
             print(labels[id_])
             print (conf)
@@ -33,7 +33,7 @@ while(k==1):
             name = labels[id_]
             opp = str(round(conf))
             color = (255,255,255)
-            cv2.putText(frame, opp, (x,y+h+25), font, 1, color, 2, cv2.LINE_AA)
+            #cv2.putText(frame, opp, (x,y+h+25), font, 1, color, 2, cv2.LINE_AA)
             cv2.putText(frame, name, (x,y-8), font, 1, color, 2, cv2.LINE_AA)
 
         k=0
@@ -43,6 +43,7 @@ while(k==1):
         color = (255,0,0)
         cv2.rectangle(frame,(x,y),(x+w,y+h), color,1)
         eyes = eye_cascade.detectMultiScale(roi_gray)
+
 
 while(True):
     cv2.imshow('frame', frame)
