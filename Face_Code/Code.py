@@ -13,7 +13,7 @@ with open("labels.pickle", 'rb') as f:
     og_labels = pickle.load(f)
     labels = {v:k for k,v in og_labels.items()}
 #cap=cv2.VideoCapture(0)
-frame = cv2.imread("exp.jpg")
+frame = cv2.imread("JurgenKlopp6.jpeg")
 while(k==1):
     #ret, frame = cap.read()
     #frame = cv2.flip(frame, 1)
