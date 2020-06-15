@@ -38,10 +38,10 @@ while(k==1):
 
         k=0
         img_item = "my-image.png"
-        cv2.imwrite(img_item, roi_gray)
+        cv2.imwrite(img_item, roi_color)
 
         color = (255,0,0)
-        cv2.rectangle(frame,(x,y),(x+w,y+h), color,1)
+        cv2.rectangle(frame,(x,y),(x+w,y+h), color,2)
         eyes = eye_cascade.detectMultiScale(roi_gray)
 
 
