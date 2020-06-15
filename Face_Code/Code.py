@@ -13,7 +13,7 @@ with open("labels.pickle", 'rb') as f:
     og_labels = pickle.load(f)
     labels = {v:k for k,v in og_labels.items()}
 #cap=cv2.VideoCapture(0)
-frame = cv2.imread("SimonaHalep8.jpg")
+frame = cv2.imread("exp.jpg")
 while(k==1):
     #ret, frame = cap.read()
     #frame = cv2.flip(frame, 1)
@@ -24,6 +24,7 @@ while(k==1):
         roi_gray = gray[y:y+h, x:x+w]
         roi_color = frame[y:y + h, x:x + w]
         id_,conf = recognizer.predict(roi_gray)
+        print(conf)
         if conf>=10 and conf<=100:
             print(id_)
             print(labels[id_])
