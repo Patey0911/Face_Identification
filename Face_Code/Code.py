@@ -13,7 +13,7 @@ with open("labels.pickle", 'rb') as f:
     og_labels = pickle.load(f)
     labels = {v:k for k,v in og_labels.items()}
 #cap=cv2.VideoCapture(0)
-frame = cv2.imread("ScarlettJohansson7.jpg")
+frame = cv2.imread("SteveJobs6.jpg")
 while(k==1):
     #ret, frame = cap.read()
     #frame = cv2.flip(frame, 1)
@@ -32,7 +32,7 @@ while(k==1):
             font = cv2.FONT_HERSHEY_SIMPLEX
             name = labels[id_]
             opp = str(round(conf))
-            color = (255,255,255)
+            color = (0,0,244)
             #cv2.putText(frame, opp, (x,y+h+25), font, 1, color, 2, cv2.LINE_AA)
             cv2.putText(frame, name, (x,y-8), font, 1, color, 2, cv2.LINE_AA)
 
