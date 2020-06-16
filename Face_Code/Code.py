@@ -1,6 +1,7 @@
 import numpy as np
 import cv2
 import pickle
+from PIL import Image
 
 face_cascade=cv2.CascadeClassifier('haarcascade_frontalface_alt2.xml')
 eye_cascade = cv2.CascadeClassifier('haarcascade_eye_tree_eyeglasses.xml')
@@ -13,7 +14,7 @@ with open("labels.pickle", 'rb') as f:
     og_labels = pickle.load(f)
     labels = {v:k for k,v in og_labels.items()}
 #cap=cv2.VideoCapture(0)
-frame = cv2.imread("SteveJobs6.jpg")
+frame = cv2.imread("ex.jpg")
 while(k==1):
     #ret, frame = cap.read()
     #frame = cv2.flip(frame, 1)
@@ -43,7 +44,6 @@ while(k==1):
         color = (255,0,0)
         cv2.rectangle(frame,(x,y),(x+w,y+h), color,2)
         eyes = eye_cascade.detectMultiScale(roi_gray)
-
 
 while(True):
     cv2.imshow('frame', frame)
