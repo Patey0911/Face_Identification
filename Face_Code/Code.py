@@ -13,8 +13,23 @@ labels = {"person_name" : 1}
 with open("labels.pickle", 'rb') as f:
     og_labels = pickle.load(f)
     labels = {v:k for k,v in og_labels.items()}
+
+def image_resize(image, width = None, height = None, inter = cv2.INTER_AREA):
+    dim = None
+    (h, w) = image.shape[:2]
+    if width is None and height is None:
+        return image
+    if width is None:
+        r = height / float(h)
+        dim = (int(w * r), height)
+    else:
+        r = width / float(w)
+        dim = (width, int(h * r))
+    resized = cv2.resize(image, dim, interpolation = inter)
+    return resized
+
 #cap=cv2.VideoCapture(0)
-frame = cv2.imread("ex1.jpg")
+frame = cv2.imread("ex22.jpg")
 while(k==1):
     #ret, frame = cap.read()
     #frame = cv2.flip(frame, 1)
@@ -45,7 +60,10 @@ while(k==1):
         cv2.rectangle(frame,(x,y),(x+w,y+h), color,2)
         eyes = eye_cascade.detectMultiScale(roi_gray)
 
+
+
+image = image_resize(frame, height = 450)
 while(True):
-    cv2.imshow('frame', frame)
+    cv2.imshow('frame', image)
     if(cv2.waitKey(20)&0xFF==ord('q')):
         break
