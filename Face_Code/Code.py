@@ -29,7 +29,7 @@ def image_resize(image, width = None, height = None, inter = cv2.INTER_AREA):
     return resized
 
 #cap=cv2.VideoCapture(0)
-frame = cv2.imread("ex23.jpg")
+frame = cv2.imread("ex.jpg")
 while(k==1):
     #ret, frame = cap.read()
     #frame = cv2.flip(frame, 1)
