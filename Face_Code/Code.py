@@ -29,7 +29,7 @@ def image_resize(image, width = None, height = None, inter = cv2.INTER_AREA):
     return resized
 
 #cap=cv2.VideoCapture(0)
-frame = cv2.imread("ex22.jpg")
+frame = cv2.imread("ex23.jpg")
 while(k==1):
     #ret, frame = cap.read()
     #frame = cv2.flip(frame, 1)
@@ -50,7 +50,7 @@ while(k==1):
             opp = str(round(conf))
             color = (0,0,244)
             #cv2.putText(frame, opp, (x,y+h+25), font, 1, color, 2, cv2.LINE_AA)
-            cv2.putText(frame, name, (x,y-8), font, 1, color, 2, cv2.LINE_AA)
+            cv2.putText(frame, name, (x,y-8), font, 1.5, color, 2, cv2.LINE_AA)
 
         k=0
         img_item = "my-image.png"
